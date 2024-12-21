@@ -25,15 +25,22 @@ class Game():
         while self.key_controller.game_resume:
             # Keyboard Controller
             self.key_controller.handle_events(pygame.event.get())
+            # Pencere dışına çıkmasın
+            self.snake_controller.frame_out()
+            # Snake hareket et
+            self.key_controller.update()
             # Pencereyi güncelle
             self.frame.clear_screen()      
-            # Snake hareket et
-            self.snake_controller.run()
+
             # snakeyi çiz
             self.snake.draw_snake()    
-
+#
             # Yem çiz
             self.food.draw_food()
+            self.food.check_food_collision()
+
 
             # Ekranı güncelle
             pygame.display.flip()
+            clock = pygame.time.Clock()
+            clock.tick(1)

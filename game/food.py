@@ -11,20 +11,25 @@ class Food():
         self.food_velocity = 20
         self.food_color = (255, 255, 102)
         self.generate_food()
+        self.loc = None
 
     def generate_food(self):
-        katlar_x = [i for i in range(0, 401-self.snake.snake_x, 20)]
-        katlar_y = [i for i in range(0, 601 - self.snake.snake_x, 20)]
+        katlar_x = [i for i in range(0, 601-self.snake.snake_size, 20)]
+        katlar_y = [i for i in range(0, 401 - self.snake.snake_size, 20)]
         self.food_x = random.choice(katlar_x)
         self.food_y = random.choice(katlar_y)
-    
+
+
     def draw_food(self):
         pygame.draw.rect(self.frame.screen,self.food_color , (self.food_x,self.food_y, self.food_size, self.food_size)) # Beyaz snake
         
 
     def check_food_collision(self):
-        if self.snake.snake_x == self.food_x and self.snake.snake_y == self.food_y:
-            self.snake.grow()
+        head = self.snake.get_head_snake()
+        if head[0] == self.food_x and head[1] == self.food_y:
+            self.snake.grow(self.snake.last_snake_location)
             self.generate_food()
-        return True
+            return True
+        return False
+        
     

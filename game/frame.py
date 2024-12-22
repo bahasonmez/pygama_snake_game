@@ -23,10 +23,7 @@ class Frame():
         pygame.display.set_caption(self.screen_title)
 
     def change_fps(self):
-        pass
-
-    def change_fps(self):
-        fps = input("-zorluk: 0 1 2") 
+        fps = input("-zorluk: 0 1 2: ") 
         if fps == 0:
             self.fps = self.kolay 
         elif fps == 1:

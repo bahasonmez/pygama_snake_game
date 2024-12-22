@@ -31,6 +31,7 @@ class Food():
             self.snake.grow(self.snake.last_snake_location)
             self.generate_food()
             self.foodlenght += 1
+            print("food lenght: %d" % self.foodlenght)
             return True
         return False
         

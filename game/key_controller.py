@@ -27,16 +27,16 @@ class KeyController():
             if event.type == pygame.QUIT:
                 self.game_resume = False
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_RIGHT and self.x_change == 0 :
+                if event.key == pygame.K_d and self.x_change == 0 :
                     self.x_change = 1
                     self.y_change = 0
-                elif event.key == pygame.K_LEFT and self.x_change == 0:
+                elif event.key == pygame.K_a and self.x_change == 0:
                     self.x_change = -1
                     self.y_change = 0
-                elif event.key == pygame.K_UP and self.y_change == 0:
+                elif event.key == pygame.K_w and self.y_change == 0:
                     self.y_change = -1
                     self.x_change = 0
-                elif event.key == pygame.K_DOWN and self.y_change == 0:
+                elif event.key == pygame.K_s and self.y_change == 0:
                     self.y_change = 1
                     self.x_change = 0
             

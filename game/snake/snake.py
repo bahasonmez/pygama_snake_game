@@ -20,7 +20,12 @@ class Snake():
     def draw_snake(self):
 
         for item in self.snake_items:
-            pygame.draw.rect(self.frame.screen,self.snake_color , (item[0],item[1],self.snake_size, self.snake_size)) # Beyaz snake
+            if item == self.snake_items[0]:
+                pygame.draw.rect(self.frame.screen,(255,0,0) , (item[0],item[1],self.snake_size, self.snake_size)) # Beyaz snake
+            else:
+                pygame.draw.rect(self.frame.screen,self.snake_color , (item[0],item[1],self.snake_size, self.snake_size)) # Beyaz snake
+            
+
 
         
     def get_last_snake_location(self):

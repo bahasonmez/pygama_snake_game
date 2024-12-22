@@ -12,10 +12,11 @@ class Food():
         self.food_color = (255, 255, 102)
         self.generate_food()
         self.loc = None
+        self.foodlenght = 0  # Kişinin yediği yemeklerin sayısı
 
     def generate_food(self):
-        katlar_x = [i for i in range(0, 601-self.snake.snake_size, 20)]
-        katlar_y = [i for i in range(0, 401 - self.snake.snake_size, 20)]
+        katlar_x = [i for i in range(0, self.frame.width + 1 -self.snake.snake_size, 20)]
+        katlar_y = [i for i in range(0, self.frame.height + 1 - self.snake.snake_size, 20)]
         self.food_x = random.choice(katlar_x)
         self.food_y = random.choice(katlar_y)
 
@@ -29,6 +30,7 @@ class Food():
         if head[0] == self.food_x and head[1] == self.food_y:
             self.snake.grow(self.snake.last_snake_location)
             self.generate_food()
+            self.foodlenght += 1
             return True
         return False
         

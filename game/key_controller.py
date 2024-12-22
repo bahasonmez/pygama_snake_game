@@ -21,7 +21,6 @@ class KeyController():
         self.snake.snake_items.insert(0,new_head)
         self.snake.snake_items.pop(-1)
 
-        print(self.snake.snake_items)
 
     def handle_events(self,events = None):
         for event in events:

@@ -18,7 +18,6 @@ class SnakeController():
                 snake[1] = 0 # Ekranın solundan tekrar başla
             if self.snake.snake_items[0][1] < 0:
                 snake[1] = self.frame.height - self.snake.snake_size # Ekranın solundan tekrar başla
-            # print(self.snake.snake_items[-1],self.snake.snake_y,)
 
     def snake_on_snake(self):
         for i in range(len(self.snake.snake_items)-1):

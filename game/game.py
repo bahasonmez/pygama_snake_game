@@ -15,7 +15,6 @@ class Game():
         self.snake_controller =SnakeController(frame=self.frame, snake=self.snake)
         self.food = Food(frame=self.frame,snake=self.snake)
         
-        self.fps = 10
 
     def run(self):
 
@@ -24,6 +23,7 @@ class Game():
         self.frame.clear_screen()
         snake_item = SnakeItem()
         self.snake.snake_items.append([snake_item.x, snake_item.y])
+
 
         while self.key_controller.game_resume and self.snake_controller.game_resume:
 
@@ -50,4 +50,4 @@ class Game():
             # Ekranı güncelle
             pygame.display.flip()
             clock = pygame.time.Clock()
-            clock.tick(self.fps)
+            clock.tick(self.frame.fps)
